@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nyoshi\Basics of Web Development & Coding Specialization</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+
+    <!-- Custom CSS -->
+    <style>
+      /* Custom CSS */
+
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+
+      section {
+        padding: 60px 0;
+      }
+
+      h1,
+      h2 {
+        margin-bottom: 20px;
+        color: blue;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      ul li {
+        margin-bottom: 10px;
+      }
+
+      footer {
+        background-color: #f8f9fa;
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 767.98px) {
+        .navbar-nav {
+          text-align: center;
+        }
+
+        .navbar-nav .nav-link {
+          padding: 0.5rem 1rem;
+        }
+
+        .container {
+          padding-left: 15px;
+          padding-right: 15px;
+        }
+      }
+
+      @media (min-width: 768px) {
+        .navbar-nav {
+          margin-left: auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div id="google_translate_element"></div>
+    </header>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">WebDevGuide</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#introduction"
+              >Introduction</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#basics">Basics</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#specialization">Specialization</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#conclusion">Conclusion</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Introduction Section -->
+    <section id="introduction" class="py-5 bg-light">
+      <div class="container">
+        <h1 class="display-4 text-center">Introduction</h1>
+        <p class="lead text-center">
+          Web development is the process of creating websites and web
+          applications. It involves various skills and technologies to make a
+          website functional, interactive, and visually appealing. Coding
+          specialization in web development means focusing on specific areas of
+          web development to become proficient in that domain.
+        </p>
+      </div>
+    </section>
+
+    <!-- Basics Section -->
+    <section id="basics" class="py-5">
+      <div class="container">
+        <h2 class="display-4 text-center">Basics of Web Development</h2>
+
+        <!-- Front-End Development -->
+        <div class="row">
+          <div class="col-md-6">
+            <h3>Front-End Development</h3>
+            <p>
+              <strong>HTML (HyperText Markup Language):</strong> The foundation
+              of web pages. Structures the content using elements like headings,
+              paragraphs, links, and images.
+            </p>
+            <p>
+              <strong>CSS (Cascading Style Sheets):</strong> Styles the HTML
+              content. Controls layout, colors, fonts, and overall appearance.
+              Key concepts: selectors, properties, box model, flexbox, grid.
+            </p>
+            <p>
+              <strong>JavaScript:</strong> Adds interactivity to web pages.
+              Allows dynamic content updates and event handling. Key concepts:
+              variables, functions, DOM manipulation, events.
+            </p>
+          </div>
+
+          <!-- Back-End Development -->
+          <div class="col-md-6">
+            <h3>Back-End Development</h3>
+            <p>
+              <strong>Server-Side Languages:</strong> Examples include Node.js,
+              Python (Django, Flask), PHP (Laravel), Ruby (Ruby on Rails).
+            </p>
+            <p>
+              <strong>Databases:</strong> SQL (e.g., MySQL, PostgreSQL) and
+              NoSQL (e.g., MongoDB).
+            </p>
+            <p>
+              <strong>APIs:</strong> Allow different software systems to
+              communicate. RESTful APIs and GraphQL are common approaches.
+            </p>
+          </div>
+        </div>
+
+        <!-- Development Tools -->
+        <div class="row">
+          <div class="col-md-12">
+            <h3>Development Tools</h3>
+            <ul>
+              <li>
+                <strong>Text Editors/IDEs:</strong> Tools like Visual Studio
+                Code, Sublime Text, or Atom.
+              </li>
+              <li>
+                <strong>Version Control:</strong> Git is essential for tracking
+                changes and collaborating.
+              </li>
+              <li>
+                <strong>Package Managers:</strong> Tools like npm (Node.js) or
+                pip (Python) manage dependencies.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Specialization Section -->
+    <section id="specialization" class="py-5 bg-light">
+      <div class="container">
+        <h2 class="display-4 text-center">Coding Specialization</h2>
+
+        <!-- Front-End Specialization -->
+        <div class="row">
+          <div class="col-md-6">
+            <h3>Front-End Specialization</h3>
+            <p>
+              <strong>Frameworks and Libraries:</strong> React, Vue.js, Angular.
+            </p>
+            <p><strong>Advanced CSS:</strong> SASS/SCSS, Responsive Design.</p>
+            <p>
+              <strong>Performance Optimization:</strong> Lazy Loading, Code
+              Splitting, Caching Strategies.
+            </p>
+          </div>
+
+          <!-- Back-End Specialization -->
+          <div class="col-md-6">
+            <h3>Back-End Specialization</h3>
+            <p><strong>Frameworks:</strong> Express.js, Django, Laravel.</p>
+            <p>
+              <strong>Database Management:</strong> ORM tools like Sequelize,
+              SQLAlchemy, Eloquent.
+            </p>
+            <p><strong>Server Management:</strong> Docker, Kubernetes.</p>
+          </div>
+        </div>
+
+        <!-- Full-Stack Development -->
+        <div class="row">
+          <div class="col-md-12">
+            <h3>Full-Stack Development</h3>
+            <p>
+              <strong>Integration:</strong> Connecting Front-End and Back-End,
+              Deployment.
+            </p>
+            <p><strong>Testing:</strong> Unit Testing, Integration Testing.</p>
+          </div>
+        </div>
+
+        <!-- Web Security -->
+        <div class="row">
+          <div class="col-md-12">
+            <h3>Web Security</h3>
+            <ul>
+              <li>
+                <strong>HTTPS:</strong> Encrypts data transmitted between the
+                client and server.
+              </li>
+              <li>
+                <strong>Cross-Site Scripting (XSS):</strong> Protecting against
+                script injections.
+              </li>
+              <li>
+                <strong>Cross-Site Request Forgery (CSRF):</strong> Preventing
+                unauthorized actions.
+              </li>
+              <li>
+                <strong>SQL Injection:</strong> Safeguarding against database
+                manipulation attacks.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Modern Development Practices -->
+        <div class="row">
+          <div class="col-md-12">
+            <h3>Modern Development Practices</h3>
+            <p>
+              <strong>Progressive Web Apps (PWAs):</strong> Provide offline
+              capabilities and a native app-like experience.
+            </p>
+            <p>
+              <strong>Single Page Applications (SPAs):</strong> Load a single
+              HTML page and update content dynamically.
+            </p>
+            <p>
+              <strong
+                >Server-Side Rendering (SSR) and Static Site Generation
+                (SSG):</strong
+              >
+              SSR (e.g., Next.js), SSG (e.g., Gatsby).
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Conclusion Section -->
+    <section id="conclusion" class="py-5">
+      <div class="container">
+        <h2 class="display-4 text-center">Conclusion</h2>
+        <p class="text-center">
+          Web development is a broad and evolving field. Starting with the
+          basics provides a solid foundation, while specialization allows deeper
+          expertise in specific areas. Whether you're interested in front-end,
+          back-end, full-stack development, or specific modern practices,
+          continual learning and practice are key to success.
+        </p>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-light text-center py-3">
+      <div class="container">
+        <p class="mb-0">© 2024 WebDevGuide. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.min.js"></script>
+
+    <!-- Google Translate Script -->
+    <script type="text/javascript">
+      function googleTranslateElement() {
+        new google.translate.TranslateElement(
+          { pageLanguage: "en" },
+          "google_translate_element"
+        );
+      }
+    </script>
+    <!-- Corrected URL for Google Translate script -->
+    <script
+      type="text/javascript"
+      src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElement"
+    ></script>
+  </body>
+</html>

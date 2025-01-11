@@ -1,0 +1,235 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* Navbar Styles */
+.top-navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  z-index: 1001;
+  background: rgba(0, 0, 0, 0.767); /* Semi-transparent background */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+  transition: background 0.3s ease-in-out;
+}
+
+.top-navbar:hover {
+  background: rgba(0, 0, 0, 0.95);
+}
+
+/* Logo Styling */
+.logo {
+  font-size: 2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(90deg, #ff6f61, #ffc107);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientMove 5s infinite linear;
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Menu Icon */
+.menu-icon {
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: white;
+  transition: transform 0.3s ease;
+}
+
+.menu-icon:hover {
+  transform: rotate(90deg);
+}
+
+/* Search Bar */
+.search-container {
+  display: flex;
+  align-items: center;
+  width: 20%;
+}
+
+.search-bar {
+  width: 100%;
+  padding: 8px;
+  border-radius: 20px;
+  border: 1px solid #ddd;
+  outline: none;
+  transition: box-shadow 0.3s ease;
+}
+
+.search-bar:focus {
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+/* Buttons */
+header .btn {
+  background-color: rgba(185, 183, 183, 0.589);
+  color: white;
+  padding: 8px 15px;
+  margin: 0 5px;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+header .btn:hover {
+  background: #ff6f61;
+  transform: scale(1.1);
+}
+
+/* Theme Toggle Button */
+.theme-toggle-btn img {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.theme-toggle-btn img:hover {
+  transform: scale(1.2);
+}
+
+.side-navbar {
+  position: fixed;
+  top: 0;
+  left: -250px;
+  width: 200px;
+  height: 100%;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 60px;
+  transition: left 0.3s;
+  overflow: hidden; /* Ensure content is hidden when navbar is not open */
+}
+
+.side-navbar .nav-links {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  text-align: center;
+}
+
+.side-navbar .nav-links li {
+  width: 100%;
+}
+
+.side-navbar .nav-links a {
+  display: block;
+  color: #fffdfd;
+  text-decoration: none;
+  padding: 14px 20px;
+  text-align: left;
+}
+
+.side-navbar .nav-links a:hover {
+  background-color: rgba(246, 237, 237, 0.55);
+}
+
+.side-navbar.open {
+  left: 0;
+}
+
+.content {
+  margin-top: 60px;
+  padding: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .top-navbar {
+    flex-direction: column;
+    height: auto;
+    padding: 10px;
+  }
+
+  .search-container {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  .account-options {
+    margin-top: 10px;
+  }
+
+  .side-navbar {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top: 60px;
+    left: -100%;
+    transition: left 0.3s;
+  }
+
+  .side-navbar.open {
+    left: 0;
+  }
+
+  .side-navbar .nav-links {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .side-navbar .nav-links a {
+    padding: 10px;
+    text-align: center;
+  }
+
+  .content {
+    margin-top: 120px;
+  }
+}
+
+.logo {
+  font-size: 4rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  background: linear-gradient(90deg, red, blue, white, gold);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient 5s infinite linear;
+  background-size: 200% 200%;
+}
+
+.hidden {
+  display: none;
+}
+
+h4 {
+  font-size: 2rem;
+  white-space: nowrap;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  background: linear-gradient(90deg, red, blue, #20ef20, gold);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="CSS/styles.css" />
+    <title>Nyoshi\faqs</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+
+      #faq {
+        background: url(https://previews.123rf.com/images/voinsveta/voinsveta1609/voinsveta160900009/64181382-los-lunares-en-colores-pastel-luz-vector-incons%C3%BAtil-del-modelo-textura-punteada-vector-sin-patr%C3%B3n.jpg);
+      }
+
+      #faq h1 {
+        margin-bottom: 40px;
+        color: rgb(17, 17, 218);
+      }
+
+      .accordion-button {
+        font-weight: bold;
+      }
+
+      .accordion-body {
+        font-size: 1.1rem;
+      }
+
+      footer {
+        margin-top: 20px;
+      }
+
+      /* Light theme styles */
+      .light-theme {
+        background-color: white;
+        color: black;
+      }
+
+      .light-theme .bg-secondary {
+        background-color: #333 !important; /* Match dark theme background */
+      }
+
+      .light-theme .nav-link {
+        color: white !important; /* Make links white in light theme */
+      }
+
+      /* Dark theme styles */
+      .dark-theme {
+        background-color: #121212;
+        color: white;
+      }
+
+      .dark-theme .bg-secondary {
+        background-color: #333 !important;
+      }
+
+      .dark-theme .nav-link {
+        color: white !important;
+      }
+
+      /* Always black text in specific sections */
+      .accordion-body {
+        color: black !important;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <header class="top-navbar bg-secondary">
+      <div class="menu-icon" onclick="toggleNav()">&#9776;</div>
+      <div class="logo">
+        <a href="index.html">
+          <img src="images/Nyos.png" alt="logo" style="height: 50px" />
+        </a>
+      </div>
+      <div class="search-container">
+        <input
+          type="text"
+          class="search-bar"
+          placeholder="Search..."
+          id="search-input"
+          onkeyup="searchContent()"
+        />
+        <button class="btn" onclick="searchContent()">Search</button>
+      </div>
+      <div class="account-options">
+        <button
+          class="btn"
+          data-bs-toggle="modal"
+          data-bs-target="#createAccountModal"
+        >
+          Create Account
+        </button>
+        <button
+          class="btn"
+          data-bs-toggle="modal"
+          data-bs-target="#signInModal"
+        >
+          Login
+        </button>
+        <button class="theme-toggle-btn" onclick="toggleTheme()">
+          <img
+            src="https://cdn.iconscout.com/icon/premium/png-512-thumb/dark-mode-10180623-8230028.png?f=webp&w=256"
+            style="height: 20px; width: 30px"
+          />
+        </button>
+      </div>
+
+      <div id="google_translate_element"></div>
+    </header>
+
+    <nav class="side-navbar bg-secondary" id="side-navbar">
+      <ul class="nav-links">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item">
+          <a class="nav-link" href="about.html">About Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="services.html">Services</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="portfolio.html">Portfolio</a>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+        <li class="nav-item">
+          <a class="nav-link" href="reviews.html">Reviews</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="contact.html">Contact</a>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
+        <li class="nav-item">
+          <a class="nav-link" href="careers.html">Careers</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="privacy-policy.html">Privacy Policy</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="sitemap.html">Sitemap</a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- FAQ Page -->
+    <section id="faq" class="py-5">
+      <div class="container">
+        <h1 class="text-center" style="margin-top: 4%">
+          Frequently Asked Questions
+        </h1>
+
+        <!-- FAQ Accordion -->
+        <div class="accordion" id="faqAccordion">
+          <!-- Existing FAQ Items -->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne">
+              <button
+                class="accordion-button"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseOne"
+                aria-expanded="true"
+                aria-controls="collapseOne"
+              >
+                What services do you offer?
+              </button>
+            </h2>
+            <div
+              id="collapseOne"
+              class="accordion-collapse collapse show"
+              aria-labelledby="headingOne"
+              data-bs-parent="#faqAccordion"
+            >
+              <div class="accordion-body">
+                We offer a wide range of services including web development, web
+                design, mobile development, e-commerce solutions, SEO and
+                marketing, and maintenance and support.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingTwo">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseTwo"
+                aria-expanded="false"
+                aria-controls="collapseTwo"
+              >
+                How long does it take to build a website?
+              </button>
+            </h2>
+            <div
+              id="collapseTwo"
+              class="accordion-collapse collapse"
+              aria-labelledby="headingTwo"
+              data-bs-parent="#faqAccordion"
+            >
+              <div class="accordion-body">
+                The time it takes to build a website depends on the complexity
+                and requirements of the project. A basic website can take a few
+                weeks, while more complex projects can take several months.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingThree">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseThree"
+                aria-expanded="false"
+                aria-controls="collapseThree"
+              >
+                Do you provide ongoing maintenance and support?
+              </button>
+            </h2>
+            <div
+              id="collapseThree"
+              class="accordion-collapse collapse"
+              aria-labelledby="headingThree"
+              data-bs-parent="#faqAccordion"
+            >
+              <div class="accordion-body">
+                Yes, we offer ongoing maintenance and support services to ensure
+                your website remains up-to-date and runs smoothly.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingFour">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseFour"
+                aria-expanded="false"
+                aria-controls="collapseFour"
+              >
+                Can you help with SEO and online marketing?
+              </button>
+            </h2>
+            <div
+              id="collapseFour"
+              class="accordion-collapse collapse"
+              aria-labelledby="headingFour"
+              data-bs-parent="#faqAccordion"
+            >
+              <div class="accordion-body">
+                Absolutely! We offer SEO and digital marketing services to help
+                improve your online presence and drive traffic to your website.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingFive">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseFive"
+                aria-expanded="false"
+                aria-controls="collapseFive"
+              >
+                What is your pricing structure?
+              </button>
+            </h2>
+            <div
+              id="collapseFive"
+              class="accordion-collapse collapse"
+              aria-labelledby="headingFive"
+              data-bs-parent="#faqAccordion"
+            >
+              <div class="accordion-body">
+                Our pricing depends on the scope and requirements of the
+                project. We offer competitive rates and can provide a detailed
+                quote based on your specific needs.
+              </div>
+            </div>
+          </div>
+
+          <!-- New FAQ Items -->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingSix">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseSix"
+                aria-expanded="false"
+                aria-controls="collapseSix"
+              >
+                What is responsive web design?
+              </button>
+            </h2>
+            <div
+              id="collapseSix"
+              class="accordion-collapse collapse"
+              aria-labelledby="headingSix"
+              data-bs-parent="#faqAccordion"
+            >
+              <div class="accordion-body">
+                Responsive web design ensures that websites look good and
+                function well on all devices and screen sizes by using flexible
+                grids, layouts, and media queries.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingSeven">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseSeven"
+                aria-expanded="false"
+                aria-controls="collapseSeven"
+              >
+                What is a content management system (CMS)?
+              </button>
+            </h2>
+            <div
+              id="collapseSeven"
+              class="accordion-collapse collapse"
+              aria-labelledby="headingSeven"
+              data-bs-parent="#faqAccordion"
+            >
+              <div class="accordion-body">
+                A CMS is a software application that allows users to create,
+                manage, and modify digital content on a website without needing
+                extensive technical knowledge. Examples include WordPress,
+                Joomla, and Drupal.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingEight">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseEight"
+                aria-expanded="false"
+                aria-controls="collapseEight"
+              >
+                What are APIs and how are they used in web development?
+              </button>
+            </h2>
+            <div
+              id="collapseEight"
+              class="accordion-collapse collapse"
+              aria-labelledby="headingEight"
+              data-bs-parent="#faqAccordion"
+            >
+              <div class="accordion-body">
+                APIs (Application Programming Interfaces) allow different
+                software applications to communicate with each other. They are
+                used to integrate third-party services or access specific
+                functionalities from external systems.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingNine">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseNine"
+                aria-expanded="false"
+                aria-controls="collapseNine"
+              >
+                What is the difference between a static and a dynamic website?
+              </button>
+            </h2>
+            <div
+              id="collapseNine"
+              class="accordion-collapse collapse"
+              aria-labelledby="headingNine"
+              data-bs-parent="#faqAccordion"
+            >
+              <div class="accordion-body">
+                A static website displays fixed content that doesn’t change
+                unless manually updated. A dynamic website generates content on
+                the fly based on user interaction or other factors, often using
+                server-side scripting and databases.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingTen">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseTen"
+                aria-expanded="false"
+                aria-controls="collapseTen"
+              >
+                How can I ensure my website is secure?
+              </button>
+            </h2>
+            <div
+              id="collapseTen"
+              class="accordion-collapse collapse"
+              aria-labelledby="headingTen"
+              data-bs-parent="#faqAccordion"
+            >
+              <div class="accordion-body">
+                To ensure website security, use HTTPS for encryption, sanitize
+                user inputs to prevent attacks, implement proper authentication
+                and authorization, and keep your software and plugins updated.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingEleven">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseEleven"
+                aria-expanded="false"
+                aria-controls="collapseEleven"
+              >
+                What is cross-browser compatibility?
+              </button>
+            </h2>
+            <div
+              id="collapseEleven"
+              class="accordion-collapse collapse"
+              aria-labelledby="headingEleven"
+              data-bs-parent="#faqAccordion"
+            >
+              <div class="accordion-body">
+                Cross-browser compatibility ensures that a website functions
+                correctly across different web browsers, such as Chrome,
+                Firefox, Safari, and Edge, by testing and adapting code for
+                varying browser behaviors.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingTwelve">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseTwelve"
+                aria-expanded="false"
+                aria-controls="collapseTwelve"
+              >
+                What is a framework, and why should I use one?
+              </button>
+            </h2>
+            <div
+              id="collapseTwelve"
+              class="accordion-collapse collapse"
+              aria-labelledby="headingTwelve"
+              data-bs-parent="#faqAccordion"
+            >
+              <div class="accordion-body">
+                A framework is a pre-built set of tools, libraries, and best
+                practices designed to streamline development. Using a framework
+                can enhance productivity, ensure consistency, and provide
+                solutions for common development challenges. Examples include
+                Angular, React, and Vue.js.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Create Account Modal -->
+    <div
+      class="modal fade"
+      id="createAccountModal"
+      tabindex="-1"
+      aria-labelledby="createAccountModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="createAccountModalLabel">
+              Create Account
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form id="createAccountForm">
+              <div class="mb-3">
+                <label for="username" class="form-label">Username</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="username"
+                  name="username"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="email"
+                  name="email"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="password"
+                  name="password"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="confirm-password" class="form-label"
+                  >Confirm Password</label
+                >
+                <input
+                  type="password"
+                  class="form-control"
+                  id="confirm-password"
+                  name="confirm-password"
+                  required
+                />
+              </div>
+              <button type="submit" class="btn btn-primary">
+                Create Account
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sign In Modal -->
+    <div
+      class="modal fade"
+      id="signInModal"
+      tabindex="-1"
+      aria-labelledby="signInModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="signInModalLabel">Login</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div id="loginForm">
+              <form>
+                <div class="mb-3">
+                  <label for="emailInput" class="form-label"
+                    >Email address</label
+                  >
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="emailInput"
+                    placeholder="name@example.com"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="passwordInput" class="form-label">Password</label>
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="passwordInput"
+                    placeholder="Password"
+                    required
+                  />
+                </div>
+                <div
+                  class="d-flex justify-content-between align-items-center mb-3"
+                >
+                  <div class="form-check">
+                    <input
+                      type="checkbox"
+                      class="form-check-input"
+                      id="rememberMeCheck"
+                    />
+                    <label class="form-check-label" for="rememberMeCheck"
+                      >Remember me</label
+                    >
+                  </div>
+                  <a href="#" id="forgotPasswordLink">Forgot Password?</a>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">
+                  Login
+                </button>
+              </form>
+            </div>
+
+            <div id="forgotPasswordOptions" style="display: none">
+              <p>
+                Please choose one of the following options to recover your
+                account:
+              </p>
+              <ul>
+                <li><a href="#">Recover via Email</a></li>
+                <li><a href="#">Recover via SMS</a></li>
+                <li><a href="#">Recover via Security Questions</a></li>
+              </ul>
+              <button class="btn btn-secondary w-100" id="backToLogin">
+                Back to Sign In
+              </button>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="bg-dark text-white py-4">
+      <div class="container">
+        <div class="row">
+          <!-- Company Info -->
+          <div class="col-lg-4 col-md-6 mb-4">
+            <h4>NYOSHI</h4>
+            <p>
+              A brief description of your company, what you do, and your mission
+              statement.
+            </p>
+          </div>
+          <!-- Navigation Links -->
+          <div class="col-lg-2 col-md-6 mb-4">
+            <h5>Quick Links</h5>
+            <ul class="list-unstyled">
+              <li><a href="index.html" class="text-white">Home</a></li>
+              <li><a href="about.html" class="text-white">About</a></li>
+              <li><a href="services.html" class="text-white">Services</a></li>
+              <li><a href="faq.html" class="text-white">FAQ</a></li>
+              <li><a href="blog.html" class="text-white">Blog</a></li>
+            </ul>
+          </div>
+          <!-- Contact Info -->
+          <div class="col-lg-3 col-md-6 mb-4">
+            <h5>Contact Us</h5>
+            <p>
+              <i class="bi bi-geo-alt"></i> 123 Main Street, Matugga, UGANDA
+            </p>
+            <p><i class="bi bi-telephone"></i> (123) 456-7890</p>
+            <p><i class="bi bi-envelope"></i> info@nyoshi.co.com</p>
+          </div>
+          <!-- Social Media Links -->
+          <div class="col-lg-2 col-md-6 mb-4">
+            <h5>Follow Us</h5>
+            <a href="#" class="text-white me-3"
+              ><i class="bi bi-facebook"
+                ><img
+                  src="https://img.freepik.com/premium-vector/3d-social-media-glossy-facebook-icon-logo-vector-design_332968-318.jpg?w=740"
+                  style="width: 50px; margin-bottom: 8px" /></i
+            ></a>
+            <a href="#" class="text-white me-3"
+              ><i class="bi bi-twitter"
+                ><img
+                  src="https://img.freepik.com/premium-vector/vinnytsia-ukraine-april-29-2023-popular-social-media-logo-twitter-icon-vector-design-realistic-editorial-sign_545793-1695.jpg?w=740"
+                  style="width: 50px; margin-bottom: 8px" /></i
+            ></a>
+            <a href="#" class="text-white me-3"
+              ><i class="bi bi-linkedin"
+                ><img
+                  src="https://img.freepik.com/premium-vector/linkedin-round-logo-vector_667864-108.jpg?w=740"
+                  style="width: 50px" /></i
+            ></a>
+            <a href="#" class="text-white"
+              ><i class="bi bi-instagram"
+                ><img
+                  src="https://img.freepik.com/free-vector/instagram-vector-social-media-icon-7-june-2021-bangkok-thailand_53876-136728.jpg?t=st=1723395039~exp=1723398639~hmac=eb8ebad5b6d82401ace9b5bb3cc7516d76971c2e7f402365d38b4fbd384adfc1&w=740"
+                  style="width: 50px" /></i
+            ></a>
+          </div>
+        </div>
+        <div class="row mt-3">
+          <div class="col text-center">
+            <p class="mb-0">
+              &copy; 2024 Your Company Name. All rights reserved.
+            </p>
+            <p>
+              <a href="privacy-policy.html" class="text-white"
+                >Privacy Policy</a
+              >
+              | <a href="services.html" class="text-white">Terms of Service</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      function toggleNav() {
+        const sideNavbar = document.getElementById("side-navbar");
+        sideNavbar.classList.toggle("open");
+      }
+
+      document.addEventListener("click", function (event) {
+        const sideNavbar = document.getElementById("side-navbar");
+        const menuIcon = document.querySelector(".menu-icon");
+        const isClickInsideNav = sideNavbar.contains(event.target);
+        const isClickInsideMenuIcon = menuIcon.contains(event.target);
+
+        if (!isClickInsideNav && !isClickInsideMenuIcon) {
+          sideNavbar.classList.remove("open");
+        }
+      });
+
+      window.addEventListener("resize", function () {
+        const sideNavbar = document.getElementById("side-navbar");
+        if (window.innerWidth > 768) {
+          sideNavbar.classList.remove("open");
+        }
+      });
+
+      function searchContent() {
+        const input = document
+          .getElementById("search-input")
+          .value.toLowerCase();
+        const sections = document.querySelectorAll(".content section");
+
+        if (input) {
+          sections.forEach((section) => {
+            const text = section.innerText.toLowerCase();
+            if (text.includes(input)) {
+              section.classList.remove("hidden");
+            } else {
+              section.classList.add("hidden");
+            }
+          });
+        } else {
+          sections.forEach((section) => {
+            section.classList.remove("hidden");
+          });
+        }
+      }
+
+      function toggleTheme() {
+        const body = document.body;
+        body.classList.toggle("light-theme");
+        body.classList.toggle("dark-theme");
+
+        const theme = body.classList.contains("dark-theme") ? "dark" : "light";
+        localStorage.setItem("theme", theme);
+      }
+
+      // Apply the saved theme on page load
+      document.addEventListener("DOMContentLoaded", function () {
+        const savedTheme = localStorage.getItem("theme") || "light";
+        document.body.classList.add(savedTheme + "-theme");
+      });
+
+      document
+        .getElementById("forgotPasswordLink")
+        .addEventListener("click", function (event) {
+          event.preventDefault();
+          document.getElementById("loginForm").style.display = "none";
+          document.getElementById("forgotPasswordOptions").style.display =
+            "block";
+        });
+
+      document
+        .getElementById("backToLogin")
+        .addEventListener("click", function (event) {
+          event.preventDefault();
+          document.getElementById("forgotPasswordOptions").style.display =
+            "none";
+          document.getElementById("loginForm").style.display = "block";
+        });
+    </script>
+
+    <!-- Google Translate Script -->
+    <script type="text/javascript">
+      function googleTranslateElement() {
+        new google.translate.TranslateElement(
+          { pageLanguage: "en" },
+          "google_translate_element"
+        );
+      }
+    </script>
+    <!-- Corrected URL for Google Translate script -->
+    <script
+      type="text/javascript"
+      src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElement"
+    ></script>
+  </body>
+</html>

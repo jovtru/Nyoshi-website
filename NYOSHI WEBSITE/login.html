@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="CSS/styles.css" />
+    <title>Nyoshi\login-signUp</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+
+      #client-login h1 {
+        margin-bottom: 40px;
+        margin-top: 40px;
+      }
+
+      #client-login .form-label {
+        font-weight: bold;
+      }
+
+      #client-login .btn {
+        margin-top: 20px;
+      }
+
+      #client-login p {
+        margin-top: 20px;
+      }
+
+      footer {
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <header class="top-navbar bg-secondary">
+      <div class="menu-icon" onclick="toggleNav()">&#9776;</div>
+      <div class="logo">Nyoshi</div>
+      <div class="search-container">
+        <input
+          type="text"
+          class="search-bar"
+          placeholder="Search..."
+          id="search-input"
+          onkeyup="searchContent()"
+        />
+        <button class="btn" onclick="searchContent()">Search</button>
+      </div>
+      <div class="account-options">
+        <button
+          class="btn"
+          data-bs-toggle="modal"
+          data-bs-target="#createAccountModal"
+        >
+          Create Account
+        </button>
+        <button
+          class="btn"
+          data-bs-toggle="modal"
+          data-bs-target="#signInModal"
+        >
+          Sign In
+        </button>
+        <button class="theme-toggle-btn" onclick="toggleTheme()">
+          <img
+            src="https://cdn.iconscout.com/icon/premium/png-512-thumb/dark-mode-10180623-8230028.png?f=webp&w=256"
+            style="height: 20px; width: 30px"
+          />
+        </button>
+      </div>
+    </header>
+
+    <nav class="side-navbar bg-secondary" id="side-navbar">
+      <ul class="nav-links">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item">
+          <a class="nav-link" href="about.html">About Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="services.html">Services</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="portfolio.html">Portfolio</a>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+        <li class="nav-item">
+          <a class="nav-link" href="reviews.html">Reviews</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="contact.html">Contact</a>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
+        <li class="nav-item">
+          <a class="nav-link" href="careers.html">Careers</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="privacy-policy.html">Privacy Policy</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="sitemap.html">Sitemap</a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Client Login Page -->
+    <section id="client-login" class="py-5">
+      <div class="container">
+        <h1 class="text-center">Client Login</h1>
+        <div class="row justify-content-center">
+          <div class="col-md-6">
+            <form>
+              <div class="mb-3">
+                <label for="email" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="email" required />
+              </div>
+              <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="password"
+                  required
+                />
+              </div>
+              <button type="submit" class="btn btn-primary w-100">Login</button>
+            </form>
+            <p class="text-center mt-3">
+              <a href="#">Forgot your password?</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Create Account Modal -->
+    <div
+      class="modal fade"
+      id="createAccountModal"
+      tabindex="-1"
+      aria-labelledby="createAccountModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="createAccountModalLabel">
+              Create Account
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form id="createAccountForm">
+              <div class="mb-3">
+                <label for="username" class="form-label">Username</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="username"
+                  name="username"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="email"
+                  name="email"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="password"
+                  name="password"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="confirm-password" class="form-label"
+                  >Confirm Password</label
+                >
+                <input
+                  type="password"
+                  class="form-control"
+                  id="confirm-password"
+                  name="confirm-password"
+                  required
+                />
+              </div>
+              <button type="submit" class="btn btn-primary">
+                Create Account
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--sing in modal-->
+    <div
+      class="modal fade"
+      id="signInModal"
+      tabindex="-1"
+      aria-labelledby="signInModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="signInModalLabel">Sign In</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="mb-3">
+                <label for="emailInput" class="form-label">Email address</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="emailInput"
+                  placeholder="name@example.com"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="passwordInput" class="form-label">Password</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="passwordInput"
+                  placeholder="Password"
+                  required
+                />
+              </div>
+              <div class="mb-3 form-check">
+                <input
+                  type="checkbox"
+                  class="form-check-input"
+                  id="rememberMeCheck"
+                />
+                <label class="form-check-label" for="rememberMeCheck"
+                  >Remember me</label
+                >
+              </div>
+              <button type="submit" class="btn btn-primary w-100">Login</button>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="py-3 bg-secondary text-white">
+      <div class="container text-center">
+        <p>&copy; 2024 Web Development Company. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      function toggleNav() {
+        const sideNavbar = document.getElementById("side-navbar");
+        sideNavbar.classList.toggle("open");
+      }
+
+      document.addEventListener("click", function (event) {
+        const sideNavbar = document.getElementById("side-navbar");
+        const menuIcon = document.querySelector(".menu-icon");
+        const isClickInsideNav = sideNavbar.contains(event.target);
+        const isClickInsideMenuIcon = menuIcon.contains(event.target);
+
+        if (!isClickInsideNav && !isClickInsideMenuIcon) {
+          sideNavbar.classList.remove("open");
+        }
+      });
+
+      window.addEventListener("resize", function () {
+        const sideNavbar = document.getElementById("side-navbar");
+        if (window.innerWidth > 768) {
+          sideNavbar.classList.remove("open");
+        }
+      });
+
+      function searchContent() {
+        const input = document
+          .getElementById("search-input")
+          .value.toLowerCase();
+        const sections = document.querySelectorAll(".content section");
+
+        if (input) {
+          sections.forEach((section) => {
+            const text = section.innerText.toLowerCase();
+            if (text.includes(input)) {
+              section.classList.remove("hidden");
+            } else {
+              section.classList.add("hidden");
+            }
+          });
+        } else {
+          sections.forEach((section) => {
+            section.classList.remove("hidden");
+          });
+        }
+      }
+
+      function toggleTheme() {
+        const body = document.body;
+        body.classList.toggle("light-theme");
+        body.classList.toggle("dark-theme");
+
+        const theme = body.classList.contains("dark-theme") ? "dark" : "light";
+        localStorage.setItem("theme", theme);
+      }
+
+      // Apply the saved theme on page load
+      document.addEventListener("DOMContentLoaded", function () {
+        const savedTheme = localStorage.getItem("theme") || "light";
+        document.body.classList.add(savedTheme + "-theme");
+      });
+    </script>
+  </body>
+</html>

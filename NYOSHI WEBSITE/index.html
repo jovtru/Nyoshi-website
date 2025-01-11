@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="CSS/styles.css" />
+    <title>Nyoshi\home</title>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+
+      #hero {
+        background: url("https://blog.zegocloud.com/wp-content/uploads/2024/03/web-development-projects.jpg")
+          no-repeat center center/cover;
+        height: 100vh;
+        color: white;
+      }
+
+      #hero h1 {
+        font-size: 3rem;
+        margin-bottom: 20px;
+      }
+
+      #hero p {
+        font-size: 1.5rem;
+      }
+
+      #overview h3 {
+        margin-top: 20px;
+      }
+
+      #portfolio .card {
+        margin-bottom: 20px;
+      }
+
+      #testimonials blockquote {
+        font-size: 1.25rem;
+      }
+
+      #contact h2 {
+        margin-bottom: 20px;
+      }
+
+      footer {
+        margin-top: 20px;
+      }
+
+      /* Light theme styles */
+      .light-theme {
+        background-color: white;
+        color: black;
+      }
+
+      .light-theme .bg-secondary {
+        background-color: #333 !important; /* Match dark theme background */
+      }
+
+      .light-theme .nav-link {
+        color: white !important; /* Make links white in light theme */
+      }
+
+      /* Dark theme styles */
+      .dark-theme {
+        background-color: #121212;
+        color: white;
+      }
+
+      .dark-theme .bg-secondary {
+        background-color: #333 !important;
+      }
+
+      .dark-theme .nav-link {
+        color: white !important;
+      }
+
+      /* Always black text in specific sections */
+      #portfolio,
+      #contact {
+        color: black !important;
+      }
+
+      /* Ensure black text for elements within these sections */
+      #portfolio h2,
+      #portfolio .card-title,
+      #portfolio .card-text,
+      #contact h2,
+      #contact .form-label,
+      #contact .form-control {
+        color: black !important;
+      }
+
+      .hidden {
+        display: none;
+      }
+
+      h1 {
+        font-size: 2.5em;
+        color: #333;
+        border-right: 0.15em solid #333;
+        white-space: nowrap;
+        overflow: hidden;
+      }
+
+      h1 {
+        font-size: 4rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+          "Lucida Sans", Arial, sans-serif;
+        background: linear-gradient(90deg, red, blue, rgb(81, 255, 0));
+        background-clip: text; /* Standard property for compatibility */
+        -webkit-background-clip: text; /* WebKit-specific prefix */
+        -webkit-text-fill-color: transparent;
+      }
+
+      /* Fade-in Animation */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .section-hidden {
+        opacity: 0;
+      }
+
+      .section-visible {
+        opacity: 1;
+        animation: fadeIn 1s ease-in-out;
+      }
+
+      /* Button Hover Effect */
+      .btn:hover {
+        transform: scale(1.1);
+        transition: transform 0.3s ease;
+      }
+
+      /* Portfolio Card Hover */
+      .card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      /* Parallax Background */
+      #hero {
+        background-attachment: fixed;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="top-navbar">
+      <div class="menu-icon" onclick="toggleNav()">&#9776;</div>
+      <div class="logo">
+        <a href="index.html">
+          <img src="images/Nyos.png" alt="logo" style="height: 50px" />
+        </a>
+      </div>
+      <div class="search-container">
+        <input
+          type="text"
+          class="search-bar"
+          placeholder="Search..."
+          id="search-input"
+          onkeyup="searchContent()"
+        />
+        <button class="btn" onclick="searchContent()">Search</button>
+      </div>
+      <div class="account-options">
+        <button
+          class="btn"
+          data-bs-toggle="modal"
+          data-bs-target="#createAccountModal"
+        >
+          Create Account
+        </button>
+        <button
+          class="btn"
+          data-bs-toggle="modal"
+          data-bs-target="#signInModal"
+        >
+          Login
+        </button>
+        <button class="theme-toggle-btn" onclick="toggleTheme()">
+          <img
+            src="https://cdn.iconscout.com/icon/premium/png-512-thumb/dark-mode-10180623-8230028.png?f=webp&w=256"
+            alt="Toggle Theme"
+          />
+        </button>
+      </div>
+      <div id="google_translate_element"></div>
+    </header>
+
+    <nav class="side-navbar bg-secondary" id="side-navbar">
+      <ul class="nav-links">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item">
+          <a class="nav-link" href="about.html">About Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="services.html">Services</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="portfolio.html">Portfolio</a>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+        <li class="nav-item">
+          <a class="nav-link" href="reviews.html">Reviews</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="contact.html">Contact</a>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
+        <li class="nav-item">
+          <a class="nav-link" href="careers.html">Careers</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="privacy-policy.html">Privacy Policy</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="sitemap.html">Sitemap</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="content">
+      <!-- Hero Section -->
+      <section id="hero" class="d-flex align-items-center">
+        <div class="container text-center">
+          <h1 id="typing-heading"></h1>
+          <p style="color: red">
+            Your partner in building professional websites
+          </p>
+          <a href="#contact" class="btn btn-primary">Get in Touch</a>
+        </div>
+      </section>
+
+      <!-- Overview Section -->
+      <section id="overview" class="py-5">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-4">
+              <h3>Web Development</h3>
+              <p>
+                We build robust and scalable web applications tailored to your
+                business needs.
+              </p>
+            </div>
+            <div class="col-md-4">
+              <h3>Web Design</h3>
+              <p>
+                Our designs are user-friendly and aesthetically pleasing,
+                ensuring a great user experience.
+              </p>
+            </div>
+            <div class="col-md-4">
+              <h3>SEO & Marketing</h3>
+              <p>
+                Boost your online presence with our SEO and digital marketing
+                services.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Portfolio Section -->
+      <section id="portfolio" class="py-5 bg-light">
+        <div class="container">
+          <h2 class="text-center">Our Portfolio</h2>
+          <div class="row">
+            <div class="col-md-4">
+              <div class="card">
+                <img
+                  src="https://res.cloudinary.com/practicaldev/image/fetch/s--cKOH5pjN--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/i/6nr064pgbqxp9mxzu1l5.jpg"
+                  class="card-img-top"
+                  alt="Project 1"
+                  style="height: 260px"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Project 1</h5>
+                  <p class="card-text">
+                    This project is made for a Simple Website that distributes
+                    the Juniors PRE.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card">
+                <img
+                  src="https://res.cloudinary.com/practicaldev/image/fetch/s--TmKvOVHA--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/i/ieork0qcwe5oaw4ao31h.jpg"
+                  class="card-img-top"
+                  alt="Project 2"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Project 2</h5>
+                  <p class="card-text">
+                    This project is made for normal Website that Distributes the
+                    Seniors PRE.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card">
+                <img
+                  src="https://res.cloudinary.com/practicaldev/image/fetch/s--_5S5yj6w--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/i/w8dl2clghqhc0mxm4be3.jpg"
+                  class="card-img-top"
+                  alt="Project 3"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Project 3</h5>
+                  <p class="card-text">.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Testimonials Section -->
+      <section id="testimonials" class="py-5">
+        <div class="container">
+          <h2 class="text-center">Client Testimonials</h2>
+          <div
+            id="testimonialCarousel"
+            class="carousel slide"
+            data-bs-ride="carousel"
+          >
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <blockquote class="blockquote text-center">
+                  <img
+                    src="https://img.freepik.com/premium-psd/customer-feedback-social-media-instagram-post-testimonial-design-square-web-template_263626-1151.jpg"
+                    style="height: 400px"
+                  />
+                  <p class="mb-0">
+                    "This company provided excellent service and delivered a
+                    fantastic product!"
+                  </p>
+                  <footer class="blockquote-footer">Client 1</footer>
+                </blockquote>
+              </div>
+              <div class="carousel-item">
+                <img
+                  src="https://img.freepik.com/free-psd/clients-feedback-testimonial-web-banner-social-media-post_505751-6122.jpg?w=740&t=st=1723834794~exp=1723835394~hmac=ebe8d94156f25730a0078f60413737a05ad64f026b78d548e5eb290c72aeea96"
+                  style="height: 400px; margin-left: 30%"
+                />
+                <blockquote class="blockquote text-center">
+                  <p class="mb-0">
+                    "We are extremely satisfied with the website they built for
+                    us."
+                  </p>
+                  <footer class="blockquote-footer">Client 2</footer>
+                </blockquote>
+              </div>
+              <div class="carousel-item">
+                <img
+                  src="https://img.freepik.com/premium-vector/creative-testimonial-quote-infographic-template-quote-testimonial-template-vector-design_471203-2103.jpg?w=740"
+                  style="height: 400px; margin-left: 30%"
+                />
+                <blockquote class="blockquote text-center">
+                  <p class="mb-0">
+                    "Highly recommend their services for any web development
+                    needs."
+                  </p>
+                  <footer class="blockquote-footer">Client 3</footer>
+                </blockquote>
+              </div>
+            </div>
+            <a
+              class="carousel-control-prev"
+              href="#testimonialCarousel"
+              role="button"
+              data-bs-slide="prev"
+            >
+              <span
+                class="carousel-control-prev-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Previous</span>
+            </a>
+            <a
+              class="carousel-control-next"
+              href="#testimonialCarousel"
+              role="button"
+              data-bs-slide="next"
+            >
+              <span
+                class="carousel-control-next-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Next</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact" class="py-5 bg-light">
+        <div class="container">
+          <h2 class="text-center">Contact Us</h2>
+          <form>
+            <div class="mb-3">
+              <label for="name" class="form-label">Name</label>
+              <input type="text" class="form-control" id="name" required />
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" class="form-control" id="email" required />
+            </div>
+            <div class="mb-3">
+              <label for="message" class="form-label">Message</label>
+              <textarea
+                class="form-control"
+                id="message"
+                rows="4"
+                required
+              ></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Send Message</button>
+          </form>
+        </div>
+      </section>
+    </div>
+
+    <!-- Create Account Modal -->
+    <div
+      class="modal fade"
+      id="createAccountModal"
+      tabindex="-1"
+      aria-labelledby="createAccountModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="createAccountModalLabel">
+              Create Account
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form id="createAccountForm">
+              <div class="mb-3">
+                <label for="username" class="form-label">Username</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="username"
+                  name="username"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="email"
+                  name="email"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="password"
+                  name="password"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="confirm-password" class="form-label"
+                  >Confirm Password</label
+                >
+                <input
+                  type="password"
+                  class="form-control"
+                  id="confirm-password"
+                  name="confirm-password"
+                  required
+                />
+              </div>
+              <button type="submit" class="btn btn-primary">
+                Create Account
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sign In Modal -->
+    <div
+      class="modal fade"
+      id="signInModal"
+      tabindex="-1"
+      aria-labelledby="signInModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="signInModalLabel">Login</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div id="loginForm">
+              <form>
+                <div class="mb-3">
+                  <label for="emailInput" class="form-label"
+                    >Email address</label
+                  >
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="emailInput"
+                    placeholder="name@example.com"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="passwordInput" class="form-label">Password</label>
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="passwordInput"
+                    placeholder="Password"
+                    required
+                  />
+                </div>
+                <div
+                  class="d-flex justify-content-between align-items-center mb-3"
+                >
+                  <div class="form-check">
+                    <input
+                      type="checkbox"
+                      class="form-check-input"
+                      id="rememberMeCheck"
+                    />
+                    <label class="form-check-label" for="rememberMeCheck"
+                      >Remember me</label
+                    >
+                  </div>
+                  <a href="#" id="forgotPasswordLink">Forgot Password?</a>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">
+                  Login
+                </button>
+              </form>
+            </div>
+
+            <div id="forgotPasswordOptions" style="display: none">
+              <p>
+                Please choose one of the following options to recover your
+                account:
+              </p>
+              <ul>
+                <li><a href="#">Recover via Email</a></li>
+                <li><a href="#">Recover via SMS</a></li>
+                <li><a href="#">Recover via Security Questions</a></li>
+              </ul>
+              <button class="btn btn-secondary w-100" id="backToLogin">
+                Back to Sign In
+              </button>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="bg-dark text-white py-4">
+      <div class="container">
+        <div class="row">
+          <!-- Company Info -->
+          <div class="col-lg-4 col-md-6 mb-4">
+            <h4>NYOSHI</h4>
+            <p>
+              A brief description of your company, what you do, and your mission
+              statement.
+            </p>
+          </div>
+          <!-- Navigation Links -->
+          <div class="col-lg-2 col-md-6 mb-4">
+            <h5>Quick Links</h5>
+            <ul class="list-unstyled">
+              <li><a href="index.html" class="text-white">Home</a></li>
+              <li><a href="about.html" class="text-white">About</a></li>
+              <li><a href="services.html" class="text-white">Services</a></li>
+              <li><a href="faq.html" class="text-white">FAQ</a></li>
+              <li><a href="blog.html" class="text-white">Blog</a></li>
+            </ul>
+          </div>
+          <!-- Contact Info -->
+          <div class="col-lg-3 col-md-6 mb-4">
+            <h5>Contact Us</h5>
+            <p>
+              <i class="bi bi-geo-alt"></i> 123 Main Street, Matugga, UGANDA
+            </p>
+            <p><i class="bi bi-telephone"></i> (123) 456-7890</p>
+            <p><i class="bi bi-envelope"></i> info@nyoshi.co.com</p>
+          </div>
+          <!-- Social Media Links -->
+          <div class="col-lg-2 col-md-6 mb-4">
+            <h5>Follow Us</h5>
+            <a href="#" class="text-white me-3"
+              ><i class="bi bi-facebook"
+                ><img
+                  src="https://img.freepik.com/premium-vector/3d-social-media-glossy-facebook-icon-logo-vector-design_332968-318.jpg?w=740"
+                  style="width: 50px; margin-bottom: 8px" /></i
+            ></a>
+            <a href="#" class="text-white me-3"
+              ><i class="bi bi-twitter"
+                ><img
+                  src="https://img.freepik.com/premium-vector/vinnytsia-ukraine-april-29-2023-popular-social-media-logo-twitter-icon-vector-design-realistic-editorial-sign_545793-1695.jpg?w=740"
+                  style="width: 50px; margin-bottom: 8px" /></i
+            ></a>
+            <a href="#" class="text-white me-3"
+              ><i class="bi bi-linkedin"
+                ><img
+                  src="https://img.freepik.com/premium-vector/linkedin-round-logo-vector_667864-108.jpg?w=740"
+                  style="width: 50px" /></i
+            ></a>
+            <a href="#" class="text-white"
+              ><i class="bi bi-instagram"
+                ><img
+                  src="https://img.freepik.com/free-vector/instagram-vector-social-media-icon-7-june-2021-bangkok-thailand_53876-136728.jpg?t=st=1723395039~exp=1723398639~hmac=eb8ebad5b6d82401ace9b5bb3cc7516d76971c2e7f402365d38b4fbd384adfc1&w=740"
+                  style="width: 50px" /></i
+            ></a>
+          </div>
+        </div>
+        <div class="row mt-3">
+          <div class="col text-center">
+            <p class="mb-0">
+              &copy; 2024 Your Company Name. All rights reserved.
+            </p>
+            <p>
+              <a href="privacy-policy.html" class="text-white"
+                >Privacy Policy</a
+              >
+              | <a href="services.html" class="text-white">Terms of Service</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      // Function to toggle the side navigation
+      function toggleNav() {
+        const sideNavbar = document.getElementById("side-navbar");
+        sideNavbar.classList.toggle("open");
+      }
+
+      // Close side navbar when clicking outside of it
+      document.addEventListener("click", function (event) {
+        const sideNavbar = document.getElementById("side-navbar");
+        const menuIcon = document.querySelector(".menu-icon");
+        const isClickInsideNav = sideNavbar.contains(event.target);
+        const isClickInsideMenuIcon = menuIcon.contains(event.target);
+
+        if (!isClickInsideNav && !isClickInsideMenuIcon) {
+          sideNavbar.classList.remove("open");
+        }
+      });
+
+      // Close side navbar on window resize if width > 768px
+      window.addEventListener("resize", function () {
+        const sideNavbar = document.getElementById("side-navbar");
+        if (window.innerWidth > 768) {
+          sideNavbar.classList.remove("open");
+        }
+      });
+
+      // Function to handle content search
+      function searchContent() {
+        const input = document
+          .getElementById("search-input")
+          .value.toLowerCase();
+        const sections = document.querySelectorAll(".content section");
+
+        if (input) {
+          sections.forEach((section) => {
+            const text = section.innerText.toLowerCase();
+            if (text.includes(input)) {
+              section.classList.remove("hidden");
+            } else {
+              section.classList.add("hidden");
+            }
+          });
+        } else {
+          sections.forEach((section) => {
+            section.classList.remove("hidden");
+          });
+        }
+      }
+
+      // Function to toggle between light and dark themes
+      function toggleTheme() {
+        const body = document.body;
+        body.classList.toggle("light-theme");
+        body.classList.toggle("dark-theme");
+
+        const theme = body.classList.contains("dark-theme") ? "dark" : "light";
+        localStorage.setItem("theme", theme);
+      }
+
+      // Apply saved theme on page load
+      document.addEventListener("DOMContentLoaded", function () {
+        const savedTheme = localStorage.getItem("theme") || "light";
+        document.body.classList.add(savedTheme + "-theme");
+      });
+
+      // Typing animation for the heading
+      const heading = document.getElementById("typing-heading");
+      const text = "WELCOME TO OUR WEBSITE";
+      let index = 0;
+
+      function typeWriter() {
+        if (index < text.length) {
+          heading.innerHTML += text.charAt(index);
+          index++;
+          setTimeout(typeWriter, 100);
+        }
+      }
+
+      typeWriter();
+
+      // Forgot password interaction
+      document
+        .getElementById("forgotPasswordLink")
+        .addEventListener("click", function (event) {
+          event.preventDefault();
+          document.getElementById("loginForm").style.display = "none";
+          document.getElementById("forgotPasswordOptions").style.display =
+            "block";
+        });
+
+      document
+        .getElementById("backToLogin")
+        .addEventListener("click", function (event) {
+          event.preventDefault();
+          document.getElementById("forgotPasswordOptions").style.display =
+            "none";
+          document.getElementById("loginForm").style.display = "block";
+        });
+
+      // My Scroll animation
+      document.addEventListener("DOMContentLoaded", () => {
+        const sections = document.querySelectorAll("section");
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("section-visible");
+              } else {
+                entry.target.classList.remove("section-visible");
+              }
+            });
+          },
+          { threshold: 0.2 }
+        );
+
+        sections.forEach((section) => {
+          observer.observe(section);
+        });
+      });
+
+      // My Smooth scroll
+      const navLinks = document.querySelectorAll(".nav-link");
+      navLinks.forEach((link) => {
+        link.addEventListener("click", (event) => {
+          const href = link.getAttribute("href");
+
+          if (href.startsWith("#")) {
+            event.preventDefault();
+            const targetId = href.substring(1);
+            const targetElement = document.getElementById(targetId);
+
+            if (targetElement) {
+              window.scrollTo({
+                top: targetElement.offsetTop,
+                behavior: "smooth",
+              });
+            }
+          }
+        });
+      });
+
+      // Google Translate
+      function googleTranslateElement() {
+        new google.translate.TranslateElement(
+          { pageLanguage: "en" },
+          "google_translate_element"
+        );
+      }
+    </script>
+    <!-- Corrected URL for Google Translate script -->
+    <script
+      type="text/javascript"
+      src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElement"
+    ></script>
+  </body>
+</html>
